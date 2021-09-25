@@ -30,6 +30,7 @@ const TodoSearch: React.FC<TodoSearchProps> = ({ filter, changeFilter, ...props 
         }}
         inputProps={{
           className: classes.input,
+          maxlength: 64,
         }}
         {...props}
       />

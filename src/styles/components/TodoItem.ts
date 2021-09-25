@@ -12,6 +12,8 @@ const useStyles = makeStyles((theme: Theme) => ({
     display: 'flex',
     alignItems: 'center',
     color: '#3d3d3d',
+    width: '100%',
+    wordBreak: 'break-word',
   },
   completedTasks: {
     textDecoration: 'line-through',
