@@ -69,7 +69,7 @@
     "no-shadow": "off",
     "@typescript-eslint/no-shadow": ["error"],
     "import/prefer-default-export": 0,
-    "import/no-unresolved": 2,
+    "import/no-unresolved": 0,
     "import/order": [
       "error",
       {
