@@ -13,6 +13,9 @@ const useStyles = makeStyles((theme: Theme) => ({
     alignItems: 'center',
     color: '#3d3d3d',
   },
+  completedTasks: {
+    textDecoration: 'line-through',
+  },
 }));
 
 export default useStyles;

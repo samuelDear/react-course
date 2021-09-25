@@ -70,6 +70,8 @@
     "@typescript-eslint/no-shadow": ["error"],
     "import/prefer-default-export": 0,
     "import/no-unresolved": 0,
+    "react/jsx-one-expression-per-line": 0,
+    "react/require-default-props": 0,
     "import/order": [
       "error",
       {

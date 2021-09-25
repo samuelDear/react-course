@@ -1,13 +1,20 @@
 import React from 'react';
 import { useStyleTodoCounter } from 'styles';
 
-const TodoCounter: React.FC = () => {
+type TodoCounterProps = {
+  completed?: number;
+  total?: number;
+};
+
+const TodoCounter: React.FC<TodoCounterProps> = ({ completed = 0, total = 0 }) => {
   const classes = useStyleTodoCounter();
 
   return (
     <>
       <h1 className={classes.title}>Your Tasks</h1>
-      <h2 className={classes.subtitle}>You have completed 2 of 3 tasks</h2>
+      <h2 className={classes.subtitle}>
+        You have completed {completed} of {total} tasks
+      </h2>
     </>
   );
 };
