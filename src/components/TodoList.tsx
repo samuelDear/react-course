@@ -1,10 +1,10 @@
 import React from 'react';
-import { Grid } from '@material-ui/core';
+import { Grid, Box } from '@material-ui/core';
 
 const TodoList: React.FC = ({ children }) => (
-  <section>
+  <Box my={4}>
     <Grid container>{children}</Grid>
-  </section>
+  </Box>
 );
 
 export default TodoList;
