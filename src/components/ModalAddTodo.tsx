@@ -81,7 +81,7 @@ const ModalAddTodo: React.FC<ModalProps> = ({ open, closeEvent, addTask, taskExi
               ),
             }}
             // eslint-disable-next-line
-            inputProps={{ maxlength: 64 }}
+            inputProps={{ maxLength: 64 }}
           />
           <Grid container item xs={12} justifyContent="space-around" className={classes.buttonsBox}>
             <Grid item container sm={5} xs={12} justifyContent="center">

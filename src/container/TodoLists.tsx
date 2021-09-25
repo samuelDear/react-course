@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useState, useEffect } from 'react';
 import update from 'immutability-helper';
 import {
   TodoCounter,
@@ -11,21 +11,26 @@ import {
 } from 'components';
 import { useStyleTodoLists } from 'styles';
 import { TodoType } from 'types';
+import { useLocalStorage } from '../config/useLocalStorage';
 
 const TodoLists: React.FC = () => {
+  const { getItem: getTodos, saveItem: saveTodo } = useLocalStorage('TASKS', []);
   const classes = useStyleTodoLists();
   const [filter, setFilter] = useState('');
   const [addTask, setAddTask] = useState(false);
-  const [todos, setTodos] = useState([
-    {
-      text: 'Cortar Cebolla',
-      completed: true,
-    },
-    {
-      text: 'Llorar',
-      completed: false,
-    },
-  ]);
+  const [todos, setTodos] = useState<TodoType[]>([]);
+
+  useEffect(() => {
+    if (getTodos()) {
+      setTodos(getTodos());
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  useEffect(() => {
+    saveTodo(todos);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [todos]);
 
   const countCompletedTasks = (): number => {
     const todosCompleted: TodoType[] = todos.filter((el: TodoType) => el.completed === true);
@@ -61,6 +66,7 @@ const TodoLists: React.FC = () => {
       completed: false,
     });
     setTodos(todosTmp);
+    saveTodo(todosTmp);
   };
 
   const validateFilter = (text: string): boolean =>
