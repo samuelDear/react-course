@@ -1,11 +1,20 @@
 import React, { useState } from 'react';
-import { TodoCounter, TodoSearch, TodoItem, CreateTodoButton, TodoList, Layout } from 'components';
+import {
+  TodoCounter,
+  TodoSearch,
+  TodoItem,
+  CreateTodoButton,
+  TodoList,
+  Layout,
+  ModalAddTodo,
+} from 'components';
 import { useStyleTodoLists } from 'styles';
 import { TodoType } from 'types';
 
 const TodoLists: React.FC = () => {
   const classes = useStyleTodoLists();
   const [filter, setFilter] = useState('');
+  const [addTask, setAddTask] = useState(false);
   const [todos, setTodos] = useState([
     {
       text: 'Cortar Cebolla',
@@ -33,6 +42,19 @@ const TodoLists: React.FC = () => {
     setTodos(todosTmp);
   };
 
+  const openModalCreateTodo = (): void => {
+    setAddTask(true);
+  };
+
+  const addNewTask = (text: string): void => {
+    const todosTmp = todos;
+    todosTmp.push({
+      text,
+      completed: false,
+    });
+    setTodos(todosTmp);
+  };
+
   const validateFilter = (text: string): boolean =>
     filter === '' ? true : text.toLowerCase().includes(filter.toLowerCase());
 
@@ -53,7 +75,12 @@ const TodoLists: React.FC = () => {
             />
           ))}
       </TodoList>
-      <CreateTodoButton />
+      <CreateTodoButton event={openModalCreateTodo} />
+      <ModalAddTodo
+        open={addTask}
+        closeEvent={() => setAddTask(false)}
+        addTask={(txt: string) => addNewTask(txt)}
+      />
     </Layout>
   );
 };

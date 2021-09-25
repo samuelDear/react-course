@@ -5,6 +5,7 @@ import useStyleTodoSearch from './components/TodoSearch';
 import useStyleTodoItem from './components/TodoItem';
 import useStyleCreateTodoButton from './components/CreateTodoButton';
 import useStyleTodoList from './components/TodoList';
+import useStyleModalAddTodo from './components/ModalAddTodo';
 
 export {
   useStyleTodoLists,
@@ -13,4 +14,5 @@ export {
   useStyleTodoItem,
   useStyleCreateTodoButton,
   useStyleTodoList,
+  useStyleModalAddTodo,
 };
