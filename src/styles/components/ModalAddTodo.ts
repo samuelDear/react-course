@@ -49,6 +49,11 @@ const useStyles = makeStyles((theme: Theme) => ({
       backgroundColor: '#4C296F',
     },
   },
+  errorText: {
+    color: '#DD0000',
+    textAlign: 'center',
+    margin: '0px 0px 10px 0px',
+  },
 }));
 
 export default useStyles;

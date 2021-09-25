@@ -17,17 +17,32 @@ type ModalProps = {
   closeEvent: () => void;
   // eslint-disable-next-line no-unused-vars
   addTask: (txt: string) => void;
+  // eslint-disable-next-line no-unused-vars
+  taskExist: (txt: string) => boolean;
 };
 
-const ModalAddTodo: React.FC<ModalProps> = ({ open, closeEvent, addTask, ...props }) => {
+const ModalAddTodo: React.FC<ModalProps> = ({ open, closeEvent, addTask, taskExist, ...props }) => {
   const [newTask, setNewTask] = useState('');
+  const [errorTask, setErrorTask] = useState('');
 
   const classes = useStyleModalAddTodo();
 
-  const saveTask = (): void => {
-    addTask(newTask);
-    setNewTask('');
-    closeEvent();
+  const saveTask = (e: any): void => {
+    e.preventDefault();
+    if (taskExist(newTask)) {
+      addTask(newTask);
+      setNewTask('');
+      closeEvent();
+    } else {
+      setError('Task exist');
+    }
+  };
+
+  const setError = (txt: string): void => {
+    setErrorTask(txt);
+    setTimeout(() => {
+      setErrorTask('');
+    }, 3000);
   };
 
   return (
@@ -44,6 +59,7 @@ const ModalAddTodo: React.FC<ModalProps> = ({ open, closeEvent, addTask, ...prop
       <DialogTitle className={classes.titleModal}>Add Task</DialogTitle>
       <DialogContent>
         <DialogContentText className={classes.msgModal}>Add your new task</DialogContentText>
+        {errorTask !== '' && <p className={classes.errorText}>{errorTask}</p>}
         <form onSubmit={saveTask}>
           <TextField
             placeholder="Task..."

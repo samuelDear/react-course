@@ -16,6 +16,9 @@ const useStyles = makeStyles((theme: Theme) => ({
   completedTasks: {
     textDecoration: 'line-through',
   },
+  hideItem: {
+    opacity: 0,
+  },
 }));
 
 export default useStyles;

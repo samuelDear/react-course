@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
+import update from 'immutability-helper';
 import {
   TodoCounter,
   TodoSearch,
@@ -46,6 +47,13 @@ const TodoLists: React.FC = () => {
     setAddTask(true);
   };
 
+  // Validamos el tasks que no exista uno igual
+  const validateTask = (text: string): boolean => {
+    const todosTmp = todos.filter((el: TodoType) => el.text === text);
+
+    return todosTmp.length === 0;
+  };
+
   const addNewTask = (text: string): void => {
     const todosTmp = todos;
     todosTmp.push({
@@ -58,6 +66,21 @@ const TodoLists: React.FC = () => {
   const validateFilter = (text: string): boolean =>
     filter === '' ? true : text.toLowerCase().includes(filter.toLowerCase());
 
+  const moveCard = useCallback(
+    (dragIndex: number, hoverIndex: number) => {
+      const dragCard = todos[dragIndex];
+      setTodos(
+        update(todos, {
+          $splice: [
+            [dragIndex, 1],
+            [hoverIndex, 0, dragCard],
+          ],
+        }),
+      );
+    },
+    [todos],
+  );
+
   return (
     <Layout className={classes.mainBox}>
       <TodoCounter completed={countCompletedTasks()} total={todos.length} />
@@ -68,16 +91,19 @@ const TodoLists: React.FC = () => {
           .map((el: TodoType, index: number) => (
             <TodoItem
               key={el.text}
+              index={index}
               text={el.text}
               completed={el.completed}
               completeTasks={() => completeTask(index)}
               removeTasks={() => removeTasks(index)}
+              dragTask={moveCard}
             />
           ))}
       </TodoList>
       <CreateTodoButton event={openModalCreateTodo} />
       <ModalAddTodo
         open={addTask}
+        taskExist={validateTask}
         closeEvent={() => setAddTask(false)}
         addTask={(txt: string) => addNewTask(txt)}
       />
