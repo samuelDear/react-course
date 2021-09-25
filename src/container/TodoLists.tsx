@@ -33,20 +33,25 @@ const TodoLists: React.FC = () => {
     setTodos(todosTmp);
   };
 
+  const validateFilter = (text: string): boolean =>
+    filter === '' ? true : text.toLowerCase().includes(filter.toLowerCase());
+
   return (
     <Layout className={classes.mainBox}>
       <TodoCounter completed={countCompletedTasks()} total={todos.length} />
       <TodoSearch filter={filter} changeFilter={(txt: string) => setFilter(txt)} />
       <TodoList>
-        {todos.map((el: TodoType, index: number) => (
-          <TodoItem
-            key={el.text}
-            text={el.text}
-            completed={el.completed}
-            completeTasks={() => completeTask(index)}
-            removeTasks={() => removeTasks(index)}
-          />
-        ))}
+        {todos
+          .filter(({ text }) => validateFilter(text))
+          .map((el: TodoType, index: number) => (
+            <TodoItem
+              key={el.text}
+              text={el.text}
+              completed={el.completed}
+              completeTasks={() => completeTask(index)}
+              removeTasks={() => removeTasks(index)}
+            />
+          ))}
       </TodoList>
       <CreateTodoButton />
     </Layout>

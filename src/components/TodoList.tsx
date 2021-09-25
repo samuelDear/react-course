@@ -6,7 +6,7 @@ const TodoList: React.FC = ({ children }) => {
   const classes = useStyleTodoList();
   return (
     <Box my={4} display="flex" className={classes.boxList}>
-      <Grid container xs={12}>
+      <Grid container item xs={12}>
         {children}
       </Grid>
     </Box>
