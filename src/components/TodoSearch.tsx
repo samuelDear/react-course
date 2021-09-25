@@ -26,7 +26,6 @@ const TodoSearch: React.FC<TodoSearchProps> = ({ filter, changeFilter, ...props 
           </InputAdornment>
         }
         classes={{
-          root: classes.cssOutlinedInput,
           notchedOutline: classes.notchedOutline,
         }}
         inputProps={{
