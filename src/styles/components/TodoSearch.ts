@@ -3,6 +3,9 @@ import { makeStyles } from '@material-ui/core';
 const useStyles = makeStyles(() => ({
   input: {
     color: '#FFF',
+    '&::': {
+      color: '#FFF',
+    },
   },
   colorIcon: {
     color: '#FFF',
