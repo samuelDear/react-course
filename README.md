@@ -2,6 +2,8 @@
 
 In this proyect I used TypeScript with React and some other plugins for practice
 
+https://samueldear.github.io/react-course/
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
