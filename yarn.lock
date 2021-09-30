@@ -4463,6 +4463,15 @@
     "@react-dnd/invariant" "^2.0.0"
     "redux" "^4.0.5"
 
+"dnd-core@14.0.1":
+  "integrity" "sha512-+PVS2VPTgKFPYWo3vAFEA8WPbTf7/xo43TifH9G8S1KqnrQu0o77A3unrF5yOugy4mIz7K5wAVFHUcha7wsz6A=="
+  "resolved" "https://registry.npmjs.org/dnd-core/-/dnd-core-14.0.1.tgz"
+  "version" "14.0.1"
+  dependencies:
+    "@react-dnd/asap" "^4.0.0"
+    "@react-dnd/invariant" "^2.0.0"
+    "redux" "^4.1.1"
+
 "dns-equal@^1.0.0":
   "integrity" "sha1-s55/HabrCnW6nBcySzR1PEfgZU0="
   "resolved" "https://registry.npmjs.org/dns-equal/-/dns-equal-1.0.0.tgz"
@@ -9737,12 +9746,27 @@
     "strip-ansi" "6.0.0"
     "text-table" "0.2.0"
 
+"react-device-detect@^2.0.0":
+  "integrity" "sha512-tXHRYaPGSOPU+gcbmFHnkZdZqC4Cn/VcnGrQEcjem+qjEg4lfKtCoBAIA+MmbPtoHXcxrny4+hJIOD9AnEowYQ=="
+  "resolved" "https://registry.npmjs.org/react-device-detect/-/react-device-detect-2.0.0.tgz"
+  "version" "2.0.0"
+  dependencies:
+    "ua-parser-js" "^0.7.28"
+
 "react-dnd-html5-backend@^14.0.1":
   "integrity" "sha512-ZDmpvFpd1NR4riw/CMbr8C3mgP6ZhsTf0c48a36kw4ZW8emgiugNlAz/qhhZ4/Pz9TO6DZ63sQohUTTl+AWGiA=="
   "resolved" "https://registry.npmjs.org/react-dnd-html5-backend/-/react-dnd-html5-backend-14.0.1.tgz"
   "version" "14.0.1"
   dependencies:
     "dnd-core" "14.0.0"
+
+"react-dnd-touch-backend@^14.1.1":
+  "integrity" "sha512-ITmfzn3fJrkUBiVLO6aJZcnu7T8C+GfwZitFryGsXKn5wYcUv+oQBeh9FYcMychmVbDdeUCfvEtTk9O+DKmAaw=="
+  "resolved" "https://registry.npmjs.org/react-dnd-touch-backend/-/react-dnd-touch-backend-14.1.1.tgz"
+  "version" "14.1.1"
+  dependencies:
+    "@react-dnd/invariant" "^2.0.0"
+    "dnd-core" "14.0.1"
 
 "react-dnd@^14.0.3":
   "integrity" "sha512-i73Hx5SKfDRdwXe30+CjF/DidiRdt/gwpPN14ajkPR20t/0osnNKFNHg3DLV6RZym+DJ0pO9H5APeMsBWGU3+Q=="
@@ -9755,7 +9779,7 @@
     "fast-deep-equal" "^3.1.3"
     "hoist-non-react-statics" "^3.3.2"
 
-"react-dom@*", "react-dom@^16.8.0 || ^17.0.0", "react-dom@^17.0.2", "react-dom@>=16.6.0":
+"react-dom@*", "react-dom@^16.8.0 || ^17.0.0", "react-dom@^17.0.2", "react-dom@>= 0.14.0 < 18.0.0", "react-dom@>=16.6.0":
   "integrity" "sha512-s4h96KtLDUQlsENhMn1ar8t2bEa+q/YAtj8pPPdIjPDGBDIVNsrD9aXNWqspUe6AzKCIG0C1HZZLqLV7qpOBGA=="
   "resolved" "https://registry.npmjs.org/react-dom/-/react-dom-17.0.2.tgz"
   "version" "17.0.2"
@@ -9865,7 +9889,7 @@
     "loose-envify" "^1.4.0"
     "prop-types" "^15.6.2"
 
-"react@*", "react@^16.8.0 || ^17.0.0", "react@^17.0.2", "react@>= 16", "react@>= 16.14", "react@>=16.6.0", "react@>=16.8.0", "react@17.0.2":
+"react@*", "react@^16.8.0 || ^17.0.0", "react@^17.0.2", "react@>= 0.14.0 < 18.0.0", "react@>= 16", "react@>= 16.14", "react@>=16.6.0", "react@>=16.8.0", "react@17.0.2":
   "integrity" "sha512-gnhPt75i/dq/z3/6q/0asP78D0u592D5L1pd7M8P+dck6Fu/jJeL6iVVK23fptSUZj8Vjf++7wXA8UNclGQcbA=="
   "resolved" "https://registry.npmjs.org/react/-/react-17.0.2.tgz"
   "version" "17.0.2"
@@ -9980,7 +10004,7 @@
     "indent-string" "^4.0.0"
     "strip-indent" "^3.0.0"
 
-"redux@^4.0.5":
+"redux@^4.0.5", "redux@^4.1.1":
   "integrity" "sha512-hZQZdDEM25UY2P493kPYuKqviVwZ58lEmGQNeQ+gXa+U0gYPUBf7NKYazbe3m+bs/DzM/ahN12DbF+NG8i0CWw=="
   "resolved" "https://registry.npmjs.org/redux/-/redux-4.1.1.tgz"
   "version" "4.1.1"
@@ -11641,6 +11665,11 @@
   "integrity" "sha512-4xfscpisVgqqDfPaJo5vkd+Qd/ItkoagnHpufr+i2QCHBsNYp+G7UAoyFl8aPtx879u38wPV65rZ8qbGZijalA=="
   "resolved" "https://registry.npmjs.org/typescript/-/typescript-4.4.3.tgz"
   "version" "4.4.3"
+
+"ua-parser-js@^0.7.28":
+  "integrity" "sha512-6Gurc1n//gjp9eQNXjD9O3M/sMwVtN5S8Lv9bvOYBfKfDNiIIhqiyi01vMBO45u4zkDE420w/e0se7Vs+sIg+g=="
+  "resolved" "https://registry.npmjs.org/ua-parser-js/-/ua-parser-js-0.7.28.tgz"
+  "version" "0.7.28"
 
 "unbox-primitive@^1.0.1":
   "integrity" "sha512-tZU/3NqK3dA5gpE1KtyiJUrEB0lxnGkMFHptJ7q6ewdZ8s12QrODwNbhIJStmJkd1QDXa1NRA8aF2A1zk/Ypyw=="
